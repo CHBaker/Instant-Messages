@@ -1,0 +1,22 @@
+{
+    "name": "server",
+    "description": "server for instant-messenger web sockets app",
+    "author": "CHBaker",
+    "dependencies": {
+        "@types/express": "^4.11.1",
+        "@types/socket.io": "^1.4.31",
+        "express": "^4.16.2",
+        "socket.io": "^2.0.4"
+    },
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-typescript": "^4.0.1",
+        "typescript": "^2.7.2"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://opensource.org/licenses/MIT"
+        }
+    ]
+}
