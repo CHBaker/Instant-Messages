@@ -5,10 +5,10 @@
         </div>
     </div>
     <div class="row message-container">
-        <div *ngFor="let message of (messages$ | async); let index = index trackBy: trackByIndex" class="row message">
+        <div *ngFor="let message of messages; let index = index trackBy: trackByIndex" class="row message">
             <div class="col-3"></div>
             <div class="col text">
-                message
+                {{ message }}
             </div>
         </div>
     </div>

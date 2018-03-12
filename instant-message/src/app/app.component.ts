@@ -9,16 +9,32 @@ import { SocketService } from './socket.service';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-    messages$: Observable<any>;
+    messages = [];
     messageForm: FormGroup;
+    ioConnection: any;
 
     constructor(
         private socketService: SocketService,
         private fb: FormBuilder) {}
 
     ngOnInit(): void {
-        this.socketService.listen();
+        this.initIoConnection();
         this.initMessageForm();
+    }
+
+    initIoConnection(): void {
+        this.socketService.initSocket();
+
+        this.ioConnection = this.socketService.onMessage()
+            .subscribe((msg) => {
+                this.messages.push(msg);
+            });
+
+        this.socketService.onEvent('connected')
+            .subscribe(() => console.log('connected'));
+
+        this.socketService.onEvent('disconnected')
+            .subscribe(() => console.log('disconnected'));
     }
 
     initMessageForm(): void {
@@ -28,7 +44,7 @@ export class AppComponent implements OnInit {
     }
 
     onSubmit(form: FormGroup): void {
-
+        this.socketService.sendMessage(form.controls['msg'].value);
     }
 
     trackByIndex(index) {
