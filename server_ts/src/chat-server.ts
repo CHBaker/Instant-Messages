@@ -5,7 +5,7 @@ import * as socketIo from 'socket.io';
 import { Message } from './models';
 
 export class ChatServer {
-    public static readonly PORT: number = 7070;
+    public static readonly PORT: number = 8383;
     private app: express.Application;
     private server: Server;
     private io: SocketIO.Server;
@@ -32,7 +32,8 @@ export class ChatServer {
     }
 
     private sockets(): void {
-        this.io = socketIo(this.server);
+        this.io = socketIo(this.server, {origins: '*:*'});
+
     }
 
     private listen(): void {

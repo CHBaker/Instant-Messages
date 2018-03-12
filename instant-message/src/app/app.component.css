@@ -1,0 +1,16 @@
+.main {
+    background: #88C3CC;
+    height: 100%;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+.message-container {
+    background: #394648;
+    color: white;
+    height: 93.2%;
+}

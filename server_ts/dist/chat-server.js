@@ -5,6 +5,11 @@ var express = require("express");
 var socketIo = require("socket.io");
 var ChatServer = /** @class */ (function () {
     function ChatServer() {
+        this.headers = {
+            extraHeaders: {
+                'Authorization': 'Bearer 1@3#42WEvZX690!FFFG'
+            }
+        };
         this.createApp();
         this.config();
         this.createServer();
@@ -13,6 +18,13 @@ var ChatServer = /** @class */ (function () {
     }
     ChatServer.prototype.createApp = function () {
         this.app = express();
+        this.app.use(function (req, res, next) {
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "X-Requested-With");
+            res.header("Access-Control-Allow-Headers", "Content-Type");
+            res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
+            next();
+        });
     };
     ChatServer.prototype.createServer = function () {
         this.server = http_1.createServer(this.app);
@@ -21,7 +33,7 @@ var ChatServer = /** @class */ (function () {
         this.port = process.env.PORT || ChatServer.PORT;
     };
     ChatServer.prototype.sockets = function () {
-        this.io = socketIo(this.server);
+        this.io = socketIo(this.server, { origins: '*:*' });
     };
     ChatServer.prototype.listen = function () {
         var _this = this;
@@ -42,7 +54,7 @@ var ChatServer = /** @class */ (function () {
     ChatServer.prototype.getApp = function () {
         return this.app;
     };
-    ChatServer.PORT = 7070;
+    ChatServer.PORT = 8383;
     return ChatServer;
 }());
 exports.ChatServer = ChatServer;

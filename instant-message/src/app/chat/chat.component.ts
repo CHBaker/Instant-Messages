@@ -30,9 +30,13 @@ export class ChatComponent implements OnInit {
         this.ioConnection = this.socketService.onMessage()
             .subscribe(
                 (message: Message) => {
+                    console.log('subscribed to socket');
                     this.messages.push(message);
                 },
-                (error) => console.log(error)
+                (error) => {
+                    console.log(error)
+                    console.log('uh oh')
+                }
         );
 
         this.socketService.onEvent(Event.CONNECT)
@@ -40,7 +44,10 @@ export class ChatComponent implements OnInit {
                 () => {
                 console.log('connected');
                 },
-                (error) => console.log(error)
+                (error) => {
+                    console.log(error);
+                    console.log('uh-oh')
+                }
         );
 
         this.socketService.onEvent(Event.DISCONNECT)
