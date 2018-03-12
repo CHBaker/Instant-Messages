@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as socket from 'socket.io-client';
+import { SocketService } from './socket.service';
 
 @Component({
     selector: 'app-root',
@@ -11,13 +11,14 @@ import * as socket from 'socket.io-client';
 export class AppComponent implements OnInit {
     messages$: Observable<any>;
     messageForm: FormGroup;
-    socket = socket('localhost:8383');
 
-    constructor(private fb: FormBuilder) {}
+    constructor(
+        private socketService: SocketService,
+        private fb: FormBuilder) {}
 
     ngOnInit(): void {
+        this.socketService.listen();
         this.initMessageForm();
-        this.listen();
     }
 
     initMessageForm(): void {
@@ -25,8 +26,6 @@ export class AppComponent implements OnInit {
             msg: ['', Validators.required]
         });
     }
-
-    listen(): void {}
 
     onSubmit(form: FormGroup): void {
 
