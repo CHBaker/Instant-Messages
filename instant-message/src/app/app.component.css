@@ -15,8 +15,52 @@
     height: 87.2%;
 }
 
+.fixed-text-box {
+    position: fixed;
+    bottom: 5px;
+    width: 100%;
+    background: #88c3cc;
+    margin-top: 10px;
+}
+
+.message-input {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 11px;
+    padding-left: 10px;
+    padding-right: 25px;
+    border: 1.5px solid #384648;
+    background: white;
+    overflow: auto;
+    word-wrap: break-word;
+}
+
 .send {
     position: absolute;
+    bottom: 8px;
+    right: 17px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: none;
+    border: none;
+    width: 23px;
+    height: 25px;
+    background: #5D9199;
+    color: white;
+    font-size: 24px;
+    padding: 0;
+}
+
+.fa-angle-double-up {
+    position: absolute;
+    top: -1px;
+    left: 5px;
+}
+
+.change-to-circle {
+    border-radius: 50px;
+    width: 25px;
+    height: 25px;
+    right: 19px;
     bottom: 5px;
-    right: 5px;
 }

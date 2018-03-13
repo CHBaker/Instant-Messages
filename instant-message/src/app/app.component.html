@@ -12,20 +12,26 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <form [formGroup]="messageForm" (ngSubmit)="onSubmit(messageForm)">
-            <input
-                formControlName='msg'
-                type="text"
-                class="col"
-            />
-            <button
-                type='submit'
-                [disabled]='messageForm.invalid'
-                class="btn btn-group btn-primary send"
-            >
-                send
-            </button>
-        </form>
+    <div class="row fixed-text-box">
+        <div class="col">
+            <form [formGroup]="messageForm" (ngSubmit)="onSubmit(messageForm)">
+                <textarea
+                    type="text"
+                    formControlName="msg"
+                    class="message-input"
+                    resize="none"
+                    appAutoGrow
+                >
+                </textarea>
+                <button
+                    type="submit"
+                    [disabled]="messageForm.invalid"
+                    class="send"
+                >
+                    <i class="fa fa-angle-double-up"></i>
+                </button>
+            </form>
+        </div>
     </div>
 </div>
+
