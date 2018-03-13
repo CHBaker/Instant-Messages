@@ -12,16 +12,20 @@
             </div>
         </div>
     </div>
-    <form [formGroup]="messageForm" (ngSubmit)="onSubmit(messageForm)">
-        <input
-            formControlName='msg'
-            type="text"
-        />
-        <button
-            type='submit'
-            class="btn btn-group btn-primary"
-        >
-            send
-        </button>
-    </form>
+    <div class="row">
+        <form [formGroup]="messageForm" (ngSubmit)="onSubmit(messageForm)">
+            <input
+                formControlName='msg'
+                type="text"
+                class="col"
+            />
+            <button
+                type='submit'
+                [disabled]='messageForm.invalid'
+                class="btn btn-group btn-primary send"
+            >
+                send
+            </button>
+        </form>
+    </div>
 </div>

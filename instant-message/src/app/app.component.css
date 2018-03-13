@@ -14,3 +14,9 @@
     color: white;
     height: 87.2%;
 }
+
+.send {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}

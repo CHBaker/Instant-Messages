@@ -39,12 +39,13 @@ export class AppComponent implements OnInit {
 
     initMessageForm(): void {
         this.messageForm = this.fb.group({
-            msg: ['', Validators.required]
+            msg: [null, Validators.required]
         });
     }
 
     onSubmit(form: FormGroup): void {
         this.socketService.sendMessage(form.controls['msg'].value);
+        this.messageForm.reset();
     }
 
     trackByIndex(index) {
