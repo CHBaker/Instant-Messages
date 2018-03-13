@@ -2,23 +2,28 @@ import {
     ElementRef,
     HostListener,
     Directive,
-    AfterContentChecked
+    AfterContentChecked,
+    Input
 } from '@angular/core';
 
 const MAX_LOOKUP_RETRIES = 3;
 @Directive({
     selector: '[appAutoGrow]'
 })
-export class AutoGrowDirective implements AfterContentChecked{
+export class AutoGrowDirective implements AfterContentChecked {
+    @Input() minHeight: string;
+    @Input() maxHeight: string;
 
     private retries = 0;
     private textAreaEl: any;
+
 
     @HostListener('input', ['$event.target'])
     onInput(textArea: HTMLTextAreaElement): void {
         this.adjust();
     }
-    constructor(public element: ElementRef) {
+
+    constructor(private element: ElementRef) {
         if (this.element.nativeElement.tagName !== 'TEXTAREA') {
             this._findNestedTextArea();
         } else {
@@ -48,8 +53,8 @@ export class AutoGrowDirective implements AfterContentChecked{
     adjust(): void {
         if (this.textAreaEl) {
             // this.textAreaEl.style.overflow = 'hidden';
-            this.textAreaEl.style.minHeight = '29px';
-            this.textAreaEl.style.maxHeight = '100px';
+            this.textAreaEl.style.minHeight = this.minHeight + 'px';
+            this.textAreaEl.style.maxHeight = this.maxHeight + 'px';
             this.textAreaEl.style.height = this.textAreaEl.scrollHeight + 'px';
         }
     }
