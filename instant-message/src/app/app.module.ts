@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SocketService } from './socket.service';
-import { DynamicTextareaDirective } from './shared/auto-grow.directive';
+import { DynamicTextareaDirective } from 'dynamic-textarea-directive';
 
 
 @NgModule({
