@@ -1,0 +1,33 @@
+<div *ngIf="showModal" class="container user-modal">
+    <div class="row">
+        <div class="col"></div>
+
+        <div class="col form-col">
+            <form [formGroup]='userForm' (ngSubmit)="onSubmit(userForm)">
+                <div class="row">
+                    <div class="col">
+                        <input
+                            formControlName="username"
+                            type="text"
+                            placeholder="user name"
+                            name="username"
+                            autocomplete="false"
+                        />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button
+                            type="submit"
+                            class="submit-button"
+                        >
+                            submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col"></div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+.user-modal {
+    position: absolute;
+    top: 36%;
+    width: 100%;
+}
+
+.form-col {
+    background: #A3E3ED;
+    border-radius: 5px;
+    height: 33%;
+    width: -15%;
+    margin-right: 5%;
+    margin-left: 5%;
+    text-align: center;
+    padding-top: 28px;
+    height: 150px;
+
+}
+
+input[name="username"] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+    color: #384648;
+    margin-top: 10px;
+    outline: none;
+    margin-bottom: 29px;
+}
+
+.submit-button {
+    border-radius: 100px;
+    border: none;
+    background: #384648;
+    color: white;
+    width: 191px;
+}

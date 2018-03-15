@@ -17,6 +17,11 @@ export class SocketService {
         console.log('msg sent');
     }
 
+    sendUser(user) {
+        this.socket.emit('REG_USER', user);
+        console.log('reg user');
+    }
+
     onMessage() {
         return new Observable<any>(observer => {
             this.socket.on('INCOMING_MSG', (msg) => observer.next(msg));
