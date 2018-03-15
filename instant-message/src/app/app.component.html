@@ -4,13 +4,13 @@
             messenger
         </div>
     </div>
-    <div class="row message-container">
-        <div *ngFor="let message of messages; let index = index trackBy: trackByIndex" class="row message">
-            <div class="col-3"></div>
-            <div class="col text">
-                {{ message }}
-            </div>
-        </div>
+    <div class="container message-container">
+            <app-in-message
+                *ngFor="let message of messages; let index = index trackBy: trackByIndex"
+                [message]='message'
+                class='msg'
+            >
+            </app-in-message>
     </div>
     <div class="row fixed-text-box">
         <div class="col">

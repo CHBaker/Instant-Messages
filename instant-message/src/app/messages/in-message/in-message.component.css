@@ -1,0 +1,19 @@
+.message {
+    width: 100%;
+}
+
+.in-message {
+    background: #E8F5F7;
+    color: #394648;
+    border-radius: 3px;
+    margin: 8px;
+    overflow-wrap: break-word;
+}
+
+.fa-caret-left {
+        position: absolute;
+        top: -4px;
+        left: -7px;
+        font-size: 22px !important;
+        color: #e8f5f7;
+}

@@ -1,6 +1,10 @@
 .main {
-    background: #88C3CC;
+    background: #384648;
     height: 100%;
+}
+
+.header {
+        background: #88c3cc;
 }
 
 .title {
@@ -13,14 +17,17 @@
     background: #394648;
     color: white;
     height: 87.2%;
+    overflow: auto;
+
 }
 
 .fixed-text-box {
     position: fixed;
-    bottom: 5px;
+    bottom: 0px;
     width: 100%;
     background: #88c3cc;
     margin-top: 10px;
+    padding-bottom: 5px;
 }
 
 .message-input {
@@ -63,4 +70,12 @@
     height: 25px;
     right: 19px;
     bottom: 5px;
+}
+
+.msg-holder {
+    height: auto
+}
+
+.msg {
+    height: 0;
 }

@@ -5,16 +5,20 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SocketService } from './socket.service';
 import { DynamicTextareaDirective } from 'dynamic-textarea-directive';
+import { InMessageComponent } from './messages/in-message/in-message.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DynamicTextareaDirective
+    DynamicTextareaDirective,
+    InMessageComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFontAwesomeModule
   ],
   providers: [
       SocketService
