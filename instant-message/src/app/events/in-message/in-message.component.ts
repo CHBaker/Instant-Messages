@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class InMessageComponent implements OnInit {
     @Input() message: string;
+    @Input() username: string;
 
     constructor() {}
 

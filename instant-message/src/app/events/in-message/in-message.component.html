@@ -1,7 +1,14 @@
 <div class="row message">
-    <div class="col in-message">
-        {{ message }}
-        <i class="fa fa-caret-left"></i>
+    <div class="col-2 user-col">
+        <div class="user">
+            {{ username.split('')[0] }}
+        </div>
+    </div>
+    <div class="col">
+        <div class="in-message">
+            {{ message }}
+            <i class="fa fa-caret-left"></i>
+        </div>
     </div>
     <div class="col-1"></div>
 </div>

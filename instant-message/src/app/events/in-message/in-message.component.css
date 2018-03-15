@@ -1,19 +1,41 @@
 .message {
     width: 100%;
+    margin-top: 15px;
+}
+
+.user-col {
+    padding-left: 0;
+}
+
+.user {
+    background: #5D9199;
+    border-radius: 100px;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    padding-top: 9px;
+    font-size: 25px;
+    color: #e8f5f7;
 }
 
 .in-message {
     background: #E8F5F7;
+    display: inline-block;
     color: #394648;
-    border-radius: 3px;
-    margin: 8px;
+    border-radius: 14px;
+    margin-top: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 100%;
+    padding-top: 1px;
+    padding-bottom: 1px;
     overflow-wrap: break-word;
 }
 
 .fa-caret-left {
-        position: absolute;
-        top: -4px;
-        left: -7px;
-        font-size: 22px !important;
-        color: #e8f5f7;
+    position: absolute;
+    top: 9px;
+    left: 11px;
+    font-size: 22px !important;
+    color: #e8f5f7;
 }
