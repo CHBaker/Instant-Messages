@@ -1,3 +1,5 @@
+import { Message } from './models/message.model';
+import { User } from './models/user.model';
 import { NewUser } from './models/event.models';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -33,14 +35,18 @@ export class AppComponent implements OnInit {
 
         this.msgConnection = this.socketService.onMessage()
             .subscribe((msg) => {
+                console.log(msg);
                 this.allEvents.push(msg);
             });
 
         this.userConnection = this.socketService.onNewUser()
-            .subscribe((user) => {
+            .subscribe((user: NewUser) => {
                 console.log('new user ', user);
-                const msg = this.userNotification(user.username);
-                this.allEvents.push(msg);
+
+                // check if new user is the current user, if so, skip notifying user
+                if (this.user === undefined || user.id !== this.user.id) {
+                    this.allEvents.push(user);
+                }
             });
 
         this.socketService.onEvent('connected')
@@ -57,7 +63,13 @@ export class AppComponent implements OnInit {
     }
 
     onSubmit(form: FormGroup): void {
-        this.socketService.sendMessage(form.controls['msg'].value);
+        const msg = form.controls['msg'].value;
+
+        // create msg object with event type and user
+        const newMsg = new Message(this.user, msg);
+        console.log(newMsg);
+        this.socketService.sendMessage(newMsg);
+
         this.messageForm.reset();
     }
 
@@ -65,11 +77,8 @@ export class AppComponent implements OnInit {
         return index;
     }
 
-    userNotification(username) {
-        return `${username} joined chat`;
-    }
-
     loginUser(user: NewUser) {
         this.user = user;
+        console.log(this.allEvents);
     }
 }

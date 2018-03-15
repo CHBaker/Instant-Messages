@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SocketService } from './socket.service';
 import { DynamicTextareaDirective } from 'dynamic-textarea-directive';
-import { InMessageComponent } from './messages/in-message/in-message.component';
+import { InMessageComponent } from './events/in-message/in-message.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { NewUserComponent } from './events/new-user/new-user.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
     AppComponent,
     DynamicTextareaDirective,
     InMessageComponent,
-    SignInComponent
+    SignInComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,

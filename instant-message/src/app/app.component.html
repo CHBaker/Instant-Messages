@@ -5,12 +5,21 @@
         </div>
     </div>
     <div class="container message-container">
+        <div *ngFor="let event of allEvents; let index = index trackBy: trackByIndex">
+
             <app-in-message
-                *ngFor="let message of allEvents; let index = index trackBy: trackByIndex"
-                [message]='message'
-                class='msg'
+                *ngIf="event.eventType === 'MSG'"
+                [message]='event.message'
             >
             </app-in-message>
+
+            <app-new-user
+                *ngIf="event.eventType === 'NEW_USER'"
+                [username]='event.username'
+            >
+            </app-new-user>
+
+        </div>
     </div>
     <div class="row fixed-text-box">
         <div class="col">
