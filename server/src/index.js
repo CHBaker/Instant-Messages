@@ -15,6 +15,7 @@ io.on("connection", function(socket) {
     socket.on("REG_USER", function(user) {
         console.log(user);
         users.push(user);
+        io.emit("NEW_USER", user);
     })
 
     socket.on("OUTGOING_MSG", function(msg) {

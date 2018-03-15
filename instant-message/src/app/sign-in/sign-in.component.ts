@@ -1,7 +1,15 @@
+import { NewUser } from './../models/event.models';
 import { SocketService } from './../socket.service';
 import { User } from './../models/user.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit, ViewChild, Renderer2 } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    ViewChild,
+    Renderer2,
+    Output,
+    EventEmitter
+} from '@angular/core';
 
 @Component({
     selector: 'app-sign-in',
@@ -12,6 +20,9 @@ export class SignInComponent implements OnInit {
 
     userForm: FormGroup;
     showModal = false;
+    user: NewUser;
+
+    @Output() loginUser: EventEmitter<NewUser> = new EventEmitter<NewUser>();
 
     constructor(
         private socketService: SocketService,
@@ -32,10 +43,11 @@ export class SignInComponent implements OnInit {
 
     onSubmit(form: FormGroup) {
         const username = form.controls['username'].value;
-        const user = new User(username);
-        console.log(user);
+        this.user = new User(username);
+        this.loginUser.emit(this.user);
 
-        this.socketService.sendUser(user);
+        this.socketService.sendUser(this.user);
+
         this.showModal = false;
     }
 }

@@ -22,6 +22,12 @@ export class SocketService {
         console.log('reg user');
     }
 
+    onNewUser() {
+        return new Observable<any>(observer => {
+            this.socket.on('NEW_USER', user => observer.next(user));
+        });
+    }
+
     onMessage() {
         return new Observable<any>(observer => {
             this.socket.on('INCOMING_MSG', (msg) => observer.next(msg));

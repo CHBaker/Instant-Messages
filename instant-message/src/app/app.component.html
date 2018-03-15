@@ -6,7 +6,7 @@
     </div>
     <div class="container message-container">
             <app-in-message
-                *ngFor="let message of messages; let index = index trackBy: trackByIndex"
+                *ngFor="let message of allEvents; let index = index trackBy: trackByIndex"
                 [message]='message'
                 class='msg'
             >
@@ -37,5 +37,7 @@
     </div>
 </div>
 
-<app-sign-in></app-sign-in>
+<app-sign-in
+    (loginUser)="loginUser($event)"
+></app-sign-in>
 

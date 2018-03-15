@@ -1,7 +1,10 @@
+import { NewUser } from './models/event.models';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SocketService } from './socket.service';
+
+import 'rxjs/add/operator/merge';
 
 @Component({
     selector: 'app-root',
@@ -9,9 +12,12 @@ import { SocketService } from './socket.service';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-    messages = [];
+    user: NewUser;
+    allEvents = [];
     messageForm: FormGroup;
-    ioConnection: any;
+
+    msgConnection: any;
+    userConnection: any;
 
     constructor(
         private socketService: SocketService,
@@ -25,9 +31,16 @@ export class AppComponent implements OnInit {
     initIoConnection(): void {
         this.socketService.initSocket();
 
-        this.ioConnection = this.socketService.onMessage()
+        this.msgConnection = this.socketService.onMessage()
             .subscribe((msg) => {
-                this.messages.push(msg);
+                this.allEvents.push(msg);
+            });
+
+        this.userConnection = this.socketService.onNewUser()
+            .subscribe((user) => {
+                console.log('new user ', user);
+                const msg = this.userNotification(user.username);
+                this.allEvents.push(msg);
             });
 
         this.socketService.onEvent('connected')
@@ -50,5 +63,13 @@ export class AppComponent implements OnInit {
 
     trackByIndex(index) {
         return index;
+    }
+
+    userNotification(username) {
+        return `${username} joined chat`;
+    }
+
+    loginUser(user: NewUser) {
+        this.user = user;
     }
 }
