@@ -2,23 +2,28 @@
     margin-top: 15px;
 }
 
+.msg-col {
+    text-align: right;
+}
+
 .user-col {
     padding-left: 0;
 }
 
 .user {
-    background: #5D9199;
+    background: #a3e3ed;
     border-radius: 100px;
     width: 55px;
     height: 55px;
     text-align: center;
     padding-top: 9px;
     font-size: 25px;
-    color: #e8f5f7;
+    color: #384648;
+    margin-left: 15%;
 }
 
 .in-message {
-    background: #E8F5F7;
+    background: #e8f5f7;
     display: inline-block;
     color: #394648;
     border-radius: 14px;
@@ -34,7 +39,8 @@
 .fa-caret-left {
     position: absolute;
     top: 9px;
-    left: 11px;
+    right: 11px;
     font-size: 22px !important;
     color: #e8f5f7;
+    transform: rotate(180deg);
 }

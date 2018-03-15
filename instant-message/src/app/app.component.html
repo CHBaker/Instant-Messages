@@ -8,11 +8,18 @@
         <div *ngFor="let event of allEvents; let index = index trackBy: trackByIndex">
 
             <app-in-message
-                *ngIf="event.eventType === 'MSG'"
+                *ngIf="event.eventType === 'MSG' && event.user.id !== user.id"
                 [message]='event.message'
                 [username]='event.user.username'
             >
             </app-in-message>
+
+            <app-out-message
+                *ngIf="event.eventType === 'MSG' && event.user.id === user.id"
+                 [message]='event.message'
+                 [username]='event.user.username'
+            >
+            </app-out-message>
 
             <app-new-user
                 *ngIf="event.eventType === 'NEW_USER'"

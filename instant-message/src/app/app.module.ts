@@ -9,6 +9,7 @@ import { InMessageComponent } from './events/in-message/in-message.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { NewUserComponent } from './events/new-user/new-user.component';
+import { OutMessageComponent } from './events/out-message/out-message.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NewUserComponent } from './events/new-user/new-user.component';
     DynamicTextareaDirective,
     InMessageComponent,
     SignInComponent,
-    NewUserComponent
+    NewUserComponent,
+    OutMessageComponent
   ],
   imports: [
     BrowserModule,
