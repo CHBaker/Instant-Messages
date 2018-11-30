@@ -12,7 +12,7 @@ app.get("/", function(req, res) {
 io.on("connection", function(socket) {
     console.log("a user connected");
 
-    socket.on("REG_USER", function(user) {
+    socket.on("CLIENT_USER", function(user) {
         console.log(user);
         users.push(user);
         io.emit("NEW_USER", user);

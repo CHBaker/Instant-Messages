@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as socket from 'socket.io-client';
 
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class SocketService {
@@ -14,12 +13,10 @@ export class SocketService {
 
     sendMessage(msg) {
         this.socket.emit('OUTGOING_MSG', msg);
-        console.log('msg sent');
     }
 
     sendUser(user) {
-        this.socket.emit('REG_USER', user);
-        console.log('reg user');
+        this.socket.emit('CLIENT_USER', user);
     }
 
     onNewUser() {

@@ -2,11 +2,9 @@ import { Message } from './models/message.model';
 import { User } from './models/user.model';
 import { NewUser } from './models/event.models';
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SocketService } from './socket.service';
-
-import 'rxjs/add/operator/merge';
 
 @Component({
     selector: 'app-root',
@@ -21,9 +19,8 @@ export class AppComponent implements OnInit {
     msgConnection: any;
     userConnection: any;
 
-    constructor(
-        private socketService: SocketService,
-        private fb: FormBuilder) {}
+    constructor(private socketService: SocketService,
+                private fb: FormBuilder) {}
 
     ngOnInit(): void {
         this.initIoConnection();
