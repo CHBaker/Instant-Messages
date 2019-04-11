@@ -1,6 +1,9 @@
 # Instant Messages
 #### Live data with Socket.io / Node.js / Angular | An instant messaging app that supports multiple clients
 
+## Slides
+- [Google slides for concepts](https://docs.google.com/presentation/d/1aa4Tac_22cWwa8PZ2bYRF_5lRuheKWTodZGMwqK4wLM/edit?usp=sharing)
+
 ## Install
 1. `$ cd Instant-Messages/instant-messages`
 2. `$ npm install`
